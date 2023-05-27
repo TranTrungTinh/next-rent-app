@@ -1,7 +1,10 @@
 import { Nunito } from 'next/font/google'
+import './globals.css'
 
 import Navbar from '@/app/components/layout/Navbar';
-import './globals.css'
+import ClientOnly from './components/ClientOnly';
+import RegisterModal from './components/modal/RegisterModal';
+import ToastProvider from './components/Toast';
 
 export const metadata = {
   title: 'Next Rent App',
@@ -20,7 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Navbar />
+        <ClientOnly>
+          <RegisterModal />
+          <Navbar />
+          <ToastProvider />
+        </ClientOnly>
         {children}
       </body>
     </html>
