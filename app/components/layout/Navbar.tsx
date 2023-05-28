@@ -7,10 +7,17 @@ import { usePathname, useRouter } from "next/navigation";
 import Container from "../Container";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
+import { SafeUser } from "@/app/types";
 // import Search from "./Search";
 // import UserMenu from "./UserMenu";
 
-const Navbar = () => {
+interface Props {
+  currentUser?: SafeUser | null
+}
+
+const Navbar: React.FC<Props> = ({
+  currentUser
+}) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -44,7 +51,7 @@ const Navbar = () => {
             alt="Logo"
           />
           <Search />
-          <UserMenu />
+          <UserMenu currentUser={currentUser} />
         </div>
       </Container>
     </div>

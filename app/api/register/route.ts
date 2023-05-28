@@ -1,4 +1,4 @@
-import prismaDb from '@/app/libs/prismadb.ts'
+import prismaDb from '@/app/libs/prismadb'
 import bcrypt from 'bcrypt'
 import { NextResponse } from 'next/server'
 
