@@ -7,6 +7,7 @@ import RegisterModal from './components/modal/RegisterModal';
 import ToastProvider from './components/Toast';
 import LoginModal from './components/modal/LoginModal';
 import { getCurrentUser } from './actions/getCurrentUser';
+import RentModal from './components/modal/RentModal';
 
 export const metadata = {
   title: 'Next Rent App',
@@ -29,6 +30,7 @@ export default async function RootLayout({
         <ClientOnly>
           <RegisterModal />
           <LoginModal />
+          <RentModal />
           <Navbar currentUser={currentUser} />
           <ToastProvider />
         </ClientOnly>

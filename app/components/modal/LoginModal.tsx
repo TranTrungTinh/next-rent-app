@@ -7,7 +7,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 
-// import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
 // import useCurrentUser from "@/app/hooks/useCurrentUser";
 
@@ -23,7 +23,7 @@ const LoginModal = () => {
 
   const router = useRouter()
   const loginModal = useLoginModal();
-  // const registerModal = useRegisterModal();
+  const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -62,10 +62,10 @@ const LoginModal = () => {
     });
   }
 
-  // const onToggle = useCallback(() => {
-  //   loginModal.onClose();
-  //   registerModal.onOpen();
-  // }, [loginModal, registerModal])
+  const onToggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal])
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -111,7 +111,7 @@ const LoginModal = () => {
       <div className="text-neutral-500 text-center mt-4 font-light">
         <p>First time using Airbnb?
           <span
-            // onClick={onToggle}
+            onClick={onToggle}
             className="
               text-neutral-800
               cursor-pointer
