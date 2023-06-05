@@ -8,11 +8,11 @@ import { useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import HeartButton from '../HeartButton';
 import Button from '../Button';
-import { SafeListing, SafeUser } from '@/app/types';
+import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
 
 interface ListingCardProps {
   data: SafeListing;
-  reservation?: Record<string, any>;
+  reservation?: SafeReservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
   actionLabel?: string;
@@ -60,9 +60,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
     return `${format(start, 'PP')} - ${format(end, 'PP')}`;
   }, [reservation])
 
-  const goDetail = useCallback(() => {
-    router.push(`/listings/${data.id}`)
-  }, [data, router])
+  const goDetail = () => router.push(`/listings/${data.id}`)
 
   return (
     <div
@@ -97,7 +95,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
       </div>
 
       <div className='font-light text-neutral-500'>
-        {reservation || data.category}
+        {reservationDate || data.category}
       </div>
 
       <div className="flex flex-row items-center gap-1">

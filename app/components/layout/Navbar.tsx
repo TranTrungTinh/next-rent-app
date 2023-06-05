@@ -54,9 +54,9 @@ const Navbar: React.FC<Props> = ({
           <UserMenu currentUser={currentUser} />
         </div>
       </Container>
-      <Categories />
+      {/* <Categories /> */}
     </div>
-    {/* {isMainPage && <Categories />} */}
+    {isMainPage && <Categories />}
   </div>
   );
 }
