@@ -1,3 +1,4 @@
+'use client'
 
 import { useRouter } from 'next/navigation'
 import Heading from "../Heading";
@@ -31,6 +32,7 @@ const EmptyState: React.FC<Props> = ({
       <Heading
         center
         title={title}
+        subtitle={subtitle}
       />
 
       <div className="w-48 mt-4">
